@@ -20,14 +20,12 @@ Common assembly rules:
 - Tools are prerequisites only (not assemblies).
 
 Reference files:
-# TODO Update BoM for simplified instructions
 - `hardware/bom/bom.csv`
 - `hardware/bom/bom_buy.csv`
 - `docs/manufacturing/printing_guide.md`
 - `docs/electronics/motor_commissioning.md`
 - `hardware/electronics/cabling/README.md`
 
-# TODO Get a wiring diagram
 Leg cabling note:
 - Left and right legs use the same sub-cable design and routing logic.
 - Cable legend: red = power, green = CAN, blue = CAN + power.
@@ -80,11 +78,12 @@ STL To Print:
 | Name | Quantity |
 |---|---:|
 | torso/torso_can_holder.stl | 1 |
+| torso/torso_can_holder_2.stl | 1 |
 | torso/torso_imu_holder.stl | 1 |
 | torso/torso_torso13.stl | 1 |
 | torso/torso_torso23.stl | 1 |
 | torso/torso_torso33.stl | 1 |
-| torso/torso_upper_torso_22.stl | 1 |
+| torso/torso_uper_torso_22.stl | 1 |
 | torso/torso_upper_torso_12.stl | 1 |
 
 > Comment: cheaper or better CAN-FD adapters may exist, but this one is currently the only adapter proven in this project to handle the RobStride CAN protocol.
@@ -197,7 +196,7 @@ Components:
 | fastener_screw | M4 screw | M4 x 16 cyl head | 2 | 4 |
 | fastener_screw | M4 screw | M4 x 20 cyl head | 6 | 12 |
 | fastener_screw | M4 screw | M4 x 30 cyl head | 4 | 8 |
-| fastener_insert | Heat-set insert M4 | brass threaded insert M4 | 2 | 4 |
+| fastener_insert | Heat-set insert M4 | brass threaded insert M4 (OD 5 mm, L 4-6 mm for 4.0 mm lower femur holes) | 2 | 4 |
 
 STL To Print:
 | Name | Quantity |
@@ -242,9 +241,9 @@ Assembly steps:
 
 > Comment: Since I don't have the wiring diagram at this point, I'm holding off on routing wires. Do what you think is best here. - Paul Ruiz
 
-8. Attach `femur_12` to `femur_22` using four M4 x 30 screws near the top motor and two M4 x 16 motors at the lower portion.
+8. Attach `femur_12` to `femur_22` using four M4 x 30 screws near the top motor and two M4 x 16 screws at the lower portion.
 
-> Comment: I found the lower holes to be pretty loose. I added two M4 threaded heat inserts on both legs to secure it better. Just be careful here as the femurs were the pieces that took the longest to print, so you don't want to ruin them this early.
+> Comment: I found the lower holes (4.0 mm bore in `femur_12`) to be pretty loose for self-tapping. I added two M4 threaded heat-set inserts (use 5.0 mm OD × 4–6 mm length rather than 6.0 mm OD so you don't displace excessive plastic in the 4.0 mm bore) on both legs to secure it better. Just be careful here as the femurs were the pieces that took the longest to print, so you don't want to ruin them this early.
 
 9. Insert the second RobStride O3 motor (ID 4 or 10) into the femur. If you didn't adjust the screws on the back earlier, now is the time to do that. Mount the motor into place using eight M4 x 10 screws (four on both sides).
 
@@ -264,11 +263,11 @@ Components:
 | Category | Name | Specification | Qty / Subassembly | Qty / Robot |
 |---|---|---|---:|---:|
 | bearing | Bearing | 5x16x5 | 2 | 4 |
-| fastener_screw | M2.5 screw | M2.5 x 8 cyl head | 9 | 18 |
-| fastener_axis | Shoulder screw 07534-05X20 | 2 | 4 |
-| fastener_axis | Shoulder screw 07534-05X40| 1 | 2 |
+| fastener_screw | M2.5 screw | M2.5 x 8 cyl head | 3 | 6 |
+| fastener_axis | Shoulder screw 07534-05X20 | ISO7379, D1=5, L1=20, B=8, M4, steel 12.9 | 2 | 4 |
+| fastener_axis | Shoulder screw 07534-05X40 | ISO7379, D1=5, L1=40, B=8, M4, SW=2.5, steel 12.9 | 1 | 2 |
 | fastener_nut | Nut M4 | M4 nut | 3 | 6 |
-| joint_spherical | Spherical joint 27628-01-05 | 2 | 4
+| joint_spherical | Spherical joint 27628-01-05 | Norelem | 2 | 4 |
 
 STL To Print:
 | Name | Quantity |
@@ -348,11 +347,13 @@ Components:
 | motor | RobStride O5 | actuator | 2 | 4 |
 | bearing | Bearing | 15x21x4 | 2 | 4 |
 | fastener_nut | Nut M3 | M3 nut | 1 | 2 |
+| fastener_screw | M3 screw | M3 x 10 cyl head | 12 | 24 |
 | fastener_screw | M3 screw | M3 x 50 cyl head | 1 | 2 |
 | fastener_screw | M4 screw | M4 x 18 cyl head | 4 | 8 |
-| fastener_screw | M4 screw | M4 x 10 cyl head | 16 | 32 |
+| fastener_screw | M4 screw | M4 x 10 cyl head | 4 | 8 |
 | fastener_screw | M2.5 screw | M2.5 x 8 cyl head | 9 | 18 |
 | fastener_nut | Nut M4 | M4 nut | 4 | 8 |
+| fastener_insert | Heat-set insert M3 | brass threaded insert M3 (OD 4.2-4.5 mm, L 4-6 mm for 3.8 mm shin spacer holes) | 4 | 8 |
 
 STL To Print:
 | Name | Quantity |
@@ -402,11 +403,11 @@ Assembly steps:
 
 ![Tibia halves connected](photos/assembly_shins/shin_tibia_connected.jpg)
 
-6. Place an M3x50 screw through the openings where the tibia connects to the knee mechanism. Secure with an M3 nut.
+6. Place an M3x30 screw (`M3x0.50 x 30` in Onshape CAD; a longer M3 screw up to M3x50 also works) through the top-rear clamping hole where the tibia pinches the knee mechanism bearing. Secure with an M3 nut.
 
 ![Tibia knee mechanism screw location](photos/assembly_shins/shin_knee_mechanism_screw.jpg)
 
-7. Slide the tibia spacer between the two motors and secure with four M4 x 10 screws.
+7. Slide the tibia spacer (`tibias2_shin_spacer_2.stl`) between the two motors and secure with four M4 x 10 screws (self-tapping directly into the 3.8 mm spacer bores; alternatively, install four M3 heat-set inserts of 4.2–4.5 mm OD × 4–6 mm length into the 3.8 mm spacer bores before sliding it in, and secure with four M3 screws).
 
 ![Tibia spacer](photos/assembly_shins/shin_tibia_spacer.jpg)
 
@@ -415,10 +416,11 @@ Assembly steps:
 Components:
 | Category | Name | Specification | Qty / Subassembly | Qty / Robot |
 |---|---|---|---:|---:|
+| fastener_screw | M4 screw | M4 x 20 cyl head | 12 | 24 |
 | fastener_screw | M5 screw | M5 x 15 cyl head | 4 | 8 |
+| fastener_nut | Nut M4 | M4 nut | 4 | 8 |
 | joint_spherical | Spherical joint 27628-01-05 | Norelem | 4 | 8 |
 | fastener_axis | Shoulder screw 07534-05X20 | ISO7379, D1=5, L1=20, B=8, M4, steel 12.9 | 4 | 8 |
-| bearing | Bearing | 5x16x5 | 2 | 4 |
 
 
 STL To Print:
@@ -461,23 +463,23 @@ Assembly steps:
 
 ## Final Assembly
 
-| Category | Name | Qty / Subassembly | Qty / Robot |
-|---|---|---:|---:|
-| bearing | 5x16x5 bearing | 2 | 4 |
-| fastener_axis | Shoulder screw 07534-05X40| 1 | 2 |
-| fastener_screw | M2.5 x 8 cyl head | 3 | 6 |
-| fastener_screw | M4 x 20 cyl head | 6 | 12 |
-| fastener_nut | M4 nut | 1 | 2 |
+| Category | Name | Specification | Qty / Subassembly | Qty / Robot |
+|---|---|---|---:|---:|
+| bearing | Bearing | 5x16x5 | 2 | 4 |
+| fastener_axis | Shoulder screw 07534-05X40 | ISO7379, D1=5, L1=40, B=8, M4, SW=2.5, steel 12.9 | 1 | 2 |
+| fastener_screw | M2.5 screw | M2.5 x 8 cyl head | 3 | 6 |
+| fastener_screw | M4 screw | M4 x 20 cyl head | 6 | 12 |
+| fastener_nut | Nut M4 | M4 nut | 1 | 2 |
 
 STL To Print:
 | Name | Quantity |
 |---|---:|
 | left_leg/ankle_mechanism/bearing_spacer34_5_7_3.stl | 1 |
 | left_leg/ankle_mechanism/bearing_spacer44_5_7_3.stl | 1 |
-| left_leg/thigh/femur_v2_hat_femur_2.stl | 1 |
+| left_leg/shin/femur_v2_hat_femur_2.stl | 1 |
 | right_leg/ankle_mechanism/bearing_spacer34_5_7_3.stl | 1 |
 | right_leg/ankle_mechanism/bearing_spacer44_5_7_3.stl | 1 |
-| right_leg/thigh/femur_v2_hat_femur_2.stl | 1 |
+| right_leg/shin/femur_v2_hat_femur_2.stl | 1 |
 
 Assembly steps:
 
@@ -485,7 +487,7 @@ Assembly steps:
 
 ![Lower femur bearings](photos/assembly_thighs/lower_femur_bearings.jpg)
 
-2. Attach the lower leg to the femur using a 5x40 shoulder screw, two 5xz7x3 spacers, and an M4 nut. Secure it with three M2.5x8 screws.
+2. Attach the lower leg to the femur using a 5x40 shoulder screw, two 5x7x3 spacers, and an M4 nut. Secure it with three M2.5x8 screws.
 
 ![Femur joint hat](photos/assembly_thighs/femur_joint_hat.jpg)
 

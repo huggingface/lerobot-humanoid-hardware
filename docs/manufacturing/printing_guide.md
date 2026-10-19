@@ -36,6 +36,7 @@ Intentional documentation scope:
 | stl | quantity |
 |---|---:|
 | torso/torso_can_holder.stl | 1 |
+| torso/torso_can_holder_2.stl | 1 |
 | torso/torso_imu_holder.stl | 1 |
 | torso/torso_torso13.stl | 1 |
 | torso/torso_torso23.stl | 1 |
@@ -74,10 +75,10 @@ Special recommendation: use `100%` infill for this subassembly.
 |---|---:|
 | left_leg/thigh/femur_v2_femur_12_sym_1.stl | 1 |
 | left_leg/thigh/femur_v2_femur_22_sym_1.stl | 1 |
-| left_leg/thigh/femur_v2_hat_femur_2.stl | 1 |
+| left_leg/thigh/femur_hat_small_1.stl | 1 |
 | right_leg/thigh/femur_v2_femur_12_1.stl | 1 |
 | right_leg/thigh/femur_v2_femur_22_1.stl | 1 |
-| right_leg/thigh/femur_v2_hat_femur_2.stl | 1 |
+| right_leg/thigh/femur_hat_small_1.stl | 1 |
 
 Special recommendation: for the large thigh part, print it on its side (not on its front face).
 Reference project:
@@ -99,12 +100,14 @@ Reference project:
 
 | stl | quantity |
 |---|---:|
+| left_leg/shin/femur_v2_hat_femur_2.stl | 1 |
 | left_leg/shin/spacer12_5_9_4_5.stl | 1 |
 | left_leg/shin/spacer22_5_9_4_5.stl | 1 |
 | left_leg/shin/tibias2_hat_big.stl | 1 |
 | left_leg/shin/tibias2_shin_spacer_2.stl | 1 |
 | left_leg/shin/tibias2_tibias12_sym_4.stl | 1 |
 | left_leg/shin/tibias2_tibias22_sym_4.stl | 1 |
+| right_leg/shin/femur_v2_hat_femur_2.stl | 1 |
 | right_leg/shin/spacer12_5_9_4_5.stl | 1 |
 | right_leg/shin/spacer22_5_9_4_5.stl | 1 |
 | right_leg/shin/tibias2_hat_big.stl | 1 |

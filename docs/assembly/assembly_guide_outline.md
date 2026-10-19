@@ -11,7 +11,9 @@
 
 ## Build Paradigm
 - Default approach: screws are threaded directly into plastic (no insert) for most plastic threads.
-- Exception: shin uses M3 threaded inserts (`4 per shin`, `8 total`), this area is structural.
+- Heat-set insert locations:
+  - `shin`: 4 × M3 brass heat-set inserts per shin (`8 total`, recommended `OD 4.2–4.5 mm × L 4–6 mm`) fit the 3.8 mm bores in the 6.0 mm-wide bars of `tibias2_shin_spacer_2.stl` when fastening with M3 screws (alternatively, `M4 x 10` screws can self-tap directly into the 3.8 mm plastic bores).
+  - `thigh` (optional reinforcement): 2 × M4 brass heat-set inserts per leg (`4 total`, recommended `OD 5.0 mm × L 4–6 mm`) fit the two 4.0 mm lower clamping holes in `femur_v2_femur_12` if the printed holes are too loose for the two `M4 x 16` screws to self-tap.
 - Insert bearings first in each subassembly (press or gentle hammer).
 - Place motor goupille/pin during the same phase as bearing insertion.
 - For subassembly goupilles: place them during assembly except on `thigh` to keep it demountable.
